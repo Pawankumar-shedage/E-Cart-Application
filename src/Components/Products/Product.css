@@ -1,0 +1,32 @@
+
+.card-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.product-card{
+    border: 1px solid #ccc;
+    width: 18rem;
+    height: 100%;
+    position: relative;
+    
+}
+.card-body{
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.product-card>img{
+    width: 100%;
+    height: auto;
+}
+
+.product-description{
+    max-height: 60px;
+}
+
+
+
