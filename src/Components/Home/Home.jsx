@@ -2,17 +2,24 @@
 import { useEffect, useState } from "react";
 import { ProductCard } from "../Products/ProductCard";
 
-import Select from "react-select";
+import "./Home.css";
+
 // icons
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoLogOutOutline } from "react-icons/io5";
 import { CgDetailsMore } from "react-icons/cg";
+import { useAuth } from "../../AuthPovider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
+
+  const { logout } = useAuth();
+
+  const navigate = useNavigate();
 
   //   price
   const [minPrice, setMinPrice] = useState("");
@@ -77,24 +84,25 @@ export const Home = () => {
     console.log(filtered);
   };
 
-  const selectOptions = [
-    {
-      value: "My Cart",
-      label: (
-        <span>
-          My Cart <AiOutlineShoppingCart />
-        </span>
-      ),
-    },
-    {
-      value: "Logout",
-      label: (
-        <span>
-          Logout <IoLogOutOutline />
-        </span>
-      ),
-    },
-  ];
+  // Dropdown
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleOptionClick = (selectedOption) => {
+    if (selectedOption === "Logout") {
+      logout();
+      console.log("User Logged out");
+    }
+
+    if (selectedOption === "My Cart") {
+      navigate("/cart");
+      console.log("My Cart");
+    }
+    console.log(selectedOption, "clicked");
+  };
 
   // ----Return-----------
 
@@ -107,8 +115,36 @@ export const Home = () => {
               Shop the Latest Trends and Essentials
             </h2>
           </div>
-          <button className="btn">
-            <CgDetailsMore />
+
+          {/* More options */}
+          <button className="btn" onClick={toggleDropdown}>
+            <span
+              style={{ backgroundColor: "rgb(232,232,232)", padding: "5px" }}
+            >
+              <CgDetailsMore />
+            </span>
+            {isDropdownOpen && (
+              <div className="dropdown-options mt-3">
+                <div
+                  className="dropdown-option mb-1 "
+                  onClick={() => handleOptionClick("Logout")}
+                >
+                  <div>Logout</div>
+                  <div>
+                    <IoLogOutOutline />
+                  </div>
+                </div>
+                <div
+                  className="dropdown-option mb-1"
+                  onClick={() => handleOptionClick("My Cart")}
+                >
+                  <div>My Cart</div>
+                  <div>
+                    <AiOutlineShoppingCart />
+                  </div>
+                </div>
+              </div>
+            )}
           </button>
         </div>
 

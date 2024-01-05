@@ -1,8 +1,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+import { useCart } from "../../CartProvider/CartProvider";
 import "./Product.css";
 
 export const ProductCard = ({ product }) => {
+  const { addItemToCart } = useCart();
+
   return (
     <>
       <div className=" card-container">
@@ -33,7 +36,14 @@ export const ProductCard = ({ product }) => {
                     </p>
                   </div>
                   <div className="add-to-cart">
-                    <button className="btn btn-primary ">Add to Cart</button>
+                    <button
+                      className="btn btn-primary "
+                      onClick={() => {
+                        addItemToCart(product);
+                      }}
+                    >
+                      Add to Cart
+                    </button>
                   </div>
 
                   {/* !Footer */}
