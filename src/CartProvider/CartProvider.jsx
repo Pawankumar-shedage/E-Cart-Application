@@ -36,7 +36,7 @@ export const CartProvider = ({ children }) => {
           existingItem.quantity += 1;
         } else {
           // If quantity is undefined or not a number, set it to 1
-          existingItem.quantity = 1;
+          existingItem.quantity += 1;
         }
 
         console.log(updatedItems);

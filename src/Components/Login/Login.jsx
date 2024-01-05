@@ -143,7 +143,7 @@ export const Login = () => {
             </button>
           </div>
         </form>
-        <ToastContainer />
+        <ToastContainer position="top-center" />
         {/* !container */}
       </div>
     </>

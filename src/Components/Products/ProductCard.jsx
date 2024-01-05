@@ -51,7 +51,7 @@ export const ProductCard = ({ product }) => {
                     </button>
                   </div>
 
-                  <ToastContainer />
+                  <ToastContainer position="top-center" />
                   {/* !Footer */}
                 </div>
               </div>
