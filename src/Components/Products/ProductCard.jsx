@@ -2,9 +2,13 @@
 /* eslint-disable react/prop-types */
 import { useCart } from "../../CartProvider/CartProvider";
 import "./Product.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const ProductCard = ({ product }) => {
   const { addItemToCart } = useCart();
+
+  const notify = () => toast.success("Item added to cart successfully!");
 
   return (
     <>
@@ -39,6 +43,7 @@ export const ProductCard = ({ product }) => {
                     <button
                       className="btn btn-primary "
                       onClick={() => {
+                        notify();
                         addItemToCart(product);
                       }}
                     >
@@ -46,6 +51,7 @@ export const ProductCard = ({ product }) => {
                     </button>
                   </div>
 
+                  <ToastContainer />
                   {/* !Footer */}
                 </div>
               </div>

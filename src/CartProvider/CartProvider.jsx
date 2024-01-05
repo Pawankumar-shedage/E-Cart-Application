@@ -17,8 +17,37 @@ export const CartProvider = ({ children }) => {
   });
 
   const addItemToCart = (item) => {
-    setCartItems((prevItems) => [...prevItems, item]);
+    // Check if the item already exists in the cart based on its id
+    const existingItemIndex = cartItems.findIndex(
+      (cartItem) => cartItem.id === item.id
+    );
+
+    if (existingItemIndex !== -1) {
+      // If the item already exists, update the existing item
+      setCartItems((prevItems) => {
+        const updatedItems = [...prevItems];
+        const existingItem = updatedItems[existingItemIndex];
+
+        // Check if quantity is defined and a number before incrementing
+        if (
+          existingItem.quantity !== undefined &&
+          !isNaN(existingItem.quantity)
+        ) {
+          existingItem.quantity += 1;
+        } else {
+          // If quantity is undefined or not a number, set it to 1
+          existingItem.quantity = 1;
+        }
+
+        console.log(updatedItems);
+        return updatedItems;
+      });
+    } else {
+      // If the item is not in the cart, add it with an initial quantity of 1
+      setCartItems((prevItems) => [...prevItems, { ...item, quantity: 1 }]);
+    }
   };
+  console.log(cartItems);
 
   useEffect(() => {
     try {

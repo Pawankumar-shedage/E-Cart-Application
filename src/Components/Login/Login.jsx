@@ -3,6 +3,8 @@ import { useState } from "react";
 import "./Login.css";
 import { useAuth } from "../../AuthPovider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Login = () => {
   //   Auth
@@ -16,6 +18,14 @@ export const Login = () => {
     username: "",
     password: "",
   });
+
+  const notifySuccess = () => {
+    toast.success("Login successfull");
+  };
+
+  const notifyFailure = () => {
+    toast.error("Invalid credentials!");
+  };
 
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -47,11 +57,14 @@ export const Login = () => {
       response
         .then((resp) => {
           if (!resp.ok) {
+            notifyFailure();
             throw new Error("Login failed");
           }
 
           //   loggin successfull
           console.log("Login successfull");
+
+          notifySuccess();
 
           return resp.json();
         })
@@ -130,6 +143,7 @@ export const Login = () => {
             </button>
           </div>
         </form>
+        <ToastContainer />
         {/* !container */}
       </div>
     </>

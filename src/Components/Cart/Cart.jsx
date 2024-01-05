@@ -75,7 +75,17 @@ export const Cart = () => {
                 <div>
                   <span className="fw-bold">{item.title}</span>
                   <br />
-                  <span className="fw-bold fs-5">&#8377; {item.price} Rs</span>
+                  <div className="d-flex flex-row justify-content-between align-items-center">
+                    <div className="fw-bold fs-5 me-3">
+                      &#8377; {item.price} Rs
+                    </div>
+
+                    {item.quantity ? (
+                      <div className=" ">Quantity: {item.quantity}</div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
                 </div>
 
                 {/* Remove Item */}
@@ -95,7 +105,7 @@ export const Cart = () => {
           ))}
         </div>
       ) : (
-        <div className="text-center">Loading...</div>
+        <div className="text-center">No Items added to cart</div>
       )}
     </div>
   );
