@@ -5,25 +5,25 @@ eCart is a dynamic React-based e-commerce application, providing users with a se
 
 ## Screenshots
 
-![Home Page](/App%20photos/Home%20screen.png)
+![Home Page](/E-Cart/src/assets/app-preview/Home%20screen.png)
 _Caption: Home Page showcasing featured products._
 
-![Login Page](/App%20photos/Login%20screen.png)
+![Login Page](/E-Cart/src/assets/app-preview/Login%20screen.png)
 _Caption: Login Page for user authentication._
 
-![Cart Page](/App%20photos/CartScreen.png)
+![Cart Page](/E-Cart/src/assets/app-preview/CartScreen.png)
 _Caption: Cart screen for displaying cart items_
 
-![Add to Cart ](/App%20photos/AddToCart.png)
+![Add to Cart ](/E-Cart/src/assets/app-preview/AddToCart.png)
 _Caption: Adding item to cart by clicking AddToCart button_
 
-![FilterByName](/App%20photos/FilterByName.png)
+![FilterByName](/E-Cart/src/assets/app-preview/FilterByName.png)
 _Caption:Filter products according to name_
 
-![FilterByPrice](/App%20photos/FilterPrice%20.png)
+![FilterByPrice](/E-Cart/src/assets/app-preview/FilterPrice%20.png)
 _Caption:Filter products according to name_
 
-![Cart Item Count](/App%20photos/CartScreen.png)
+![Cart Item Count](/E-Cart/src/assets/app-preview/cartCount.png)
 _Caption: Total cart items_
 
 **Features:**
