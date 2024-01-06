@@ -5,7 +5,7 @@ eCart is a dynamic React-based e-commerce application, providing users with a se
 
 ## Screenshots
 
-![Home Page](/E-Cart/src/assets/app-preview/Home%20screen.png)
+![Home Page](/src/assets/app-preview/Home%20screen.png)
 _Caption: Home Page showcasing featured products._
 
 ![Login Page](/E-Cart/src/assets/app-preview/Login%20screen.png)
