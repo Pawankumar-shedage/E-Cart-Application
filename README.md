@@ -87,7 +87,3 @@ http://localhost:3000
 
 License:
 This project is licensed under the MIT License - see the LICENSE.md file for details.
-
-Screenshots:
-
-Make sure to replace placeholders like `your-username` and `#Vercel-App-Link` with the actual details for your project. Additionally, include any additional sections or information that is relevant to your specific project.
