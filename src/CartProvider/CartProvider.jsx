@@ -12,7 +12,7 @@ export const CartProvider = ({ children }) => {
       const storedCartItems = localStorage.getItem(CART_STORAGE);
       return storedCartItems ? JSON.parse(storedCartItems) : [];
     } catch (error) {
-      console.log("Error getting cart Items :", error);
+      // console.log("Error getting cart Items :", error);
     }
   });
 
@@ -39,7 +39,7 @@ export const CartProvider = ({ children }) => {
           existingItem.quantity += 1;
         }
 
-        console.log(updatedItems);
+        // console.log(updatedItems);
         return updatedItems;
       });
     } else {
@@ -47,7 +47,7 @@ export const CartProvider = ({ children }) => {
       setCartItems((prevItems) => [...prevItems, { ...item, quantity: 1 }]);
     }
   };
-  console.log(cartItems);
+  // console.log(cartItems);
 
   useEffect(() => {
     try {

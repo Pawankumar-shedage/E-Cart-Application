@@ -5,6 +5,7 @@ import { Login } from "./Components/Login/Login";
 import { PrivateRoute } from "./Components/PrivateRoute/PrivateRoute";
 import { CartProvider } from "./CartProvider/CartProvider";
 import { Cart } from "./Components/Cart/Cart";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </CartProvider>
+
+      {/* Global */}
+      <ToastContainer position="top-center" />
     </>
   );
 }

@@ -16,12 +16,14 @@ export const Cart = () => {
 
   // ----return----
   return (
-    <div className="cart-container container">
+    <div className="cart-container  mt-5">
       <div className="fs-3 cart-header">
         {/* cart */}
         <div className="mycart">
-          <div className="me-3">
-            <h2 className="text-center ">My Cart </h2>
+          <div className="">
+            <h2 className="text-center" style={{ fontSize: "2vw" }}>
+              My Cart{" "}
+            </h2>
           </div>
           <div>
             <span>
@@ -31,28 +33,40 @@ export const Cart = () => {
             </span>
           </div>
         </div>
-        <div>
+        <div className="mb-3">
           <Link to="/home" className="nav-link">
-            <IoMdHome aria-label="Home" title="Home" />
+            <IoMdHome
+              aria-label="Home"
+              title="Home"
+              style={{ fontSize: "2vw" }}
+            />
           </Link>
         </div>
       </div>
 
-      <div className="cart-details mt-5">
+      <div className="cart-details mt-5 mb-3">
         <div>
-          <h5 className="text-start">Cart Count : {cartCount}</h5>
-          <h5 className="text-start">
-            Total Amount : &#8377;
-            <span style={{ color: "green" }}>{totalAmount}</span>
-          </h5>
+          <div>
+            <h5 className="text-start" style={{ fontSize: "2vw" }}>
+              Cart Count : {cartCount}
+            </h5>
+          </div>
+          <div>
+            <h5 className="text-start" style={{ fontSize: "2vw" }}>
+              Total Amount : &#8377;
+              <span style={{ color: "green" }}> {totalAmount}</span>
+            </h5>
+          </div>
         </div>
         <div>
-          <h5>
-            Delete all &nbsp;
-            <span onClick={clearCart}>
-              <RiDeleteBin6Fill title="Delete all items" />
-            </span>
-          </h5>
+          <div className="mt-4">
+            <h5 style={{ fontSize: "2vw" }}>
+              Delete all &nbsp;
+              <span onClick={clearCart}>
+                <RiDeleteBin6Fill title="Delete all items" />
+              </span>
+            </h5>
+          </div>
         </div>
       </div>
 
@@ -92,7 +106,7 @@ export const Cart = () => {
                 <div>
                   <span
                     role="button"
-                    className="fs-3"
+                    className=""
                     onClick={() => {
                       removeFromCart(item.id);
                     }}

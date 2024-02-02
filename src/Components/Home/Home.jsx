@@ -27,14 +27,13 @@ export const Home = () => {
 
   useEffect(() => {
     fetchProducts();
-    // console.log(products);
   }, []);
 
   useEffect(() => {
     filterProducts();
   }, [products, minPrice, maxPrice, searchQuery]);
 
-  // Fetching Products
+  // Fetching Products from open api(dummy json)
   const fetchProducts = async () => {
     try {
       const response = await fetch("https://dummyjson.com/products");
@@ -81,7 +80,7 @@ export const Home = () => {
     }
 
     setFilteredProducts(filtered);
-    console.log(filtered);
+    // console.log(filtered);
   };
 
   // Dropdown
@@ -94,35 +93,44 @@ export const Home = () => {
   const handleOptionClick = (selectedOption) => {
     if (selectedOption === "Logout") {
       logout();
-      console.log("User Logged out");
+      // console.log("User Logged out");
     }
 
     if (selectedOption === "My Cart") {
       navigate("/cart");
-      console.log("My Cart");
+      // console.log("My Cart");
     }
-    console.log(selectedOption, "clicked");
+    // console.log(selectedOption, "clicked");
   };
 
   // ----Return-----------
 
   return (
     <>
-      <div className="home-container container mt-5 mb-5">
+      <div className="home-container  mt-5 mb-5">
         <div className="home-header d-flex flex-row justify-content-between text-center container mb-5">
-          <div className="">
-            <h2 className="text-center ">
+          {/* header */}
+          <div className="d-flex flex-row justify-content-center align-items-center">
+            <h2 className="text-center" style={{ fontSize: "3vw" }}>
               Shop the Latest Trends and Essentials
             </h2>
           </div>
 
           {/* More options */}
-          <button className="btn" onClick={toggleDropdown}>
-            <span
-              style={{ backgroundColor: "rgb(232,232,232)", padding: "5px" }}
-            >
-              <CgDetailsMore />
-            </span>
+          <div className="more-options">
+            <button className="btn" onClick={toggleDropdown}>
+              <span
+                style={{ backgroundColor: "rgb(232,232,232)", padding: "5px" }}
+              >
+                <CgDetailsMore
+                  style={{
+                    color: "black",
+                    fontSize: "3vw",
+                    // padding: "10px",
+                  }}
+                />
+              </span>
+            </button>
             {isDropdownOpen && (
               <div className="dropdown-options mt-3">
                 <div
@@ -130,8 +138,8 @@ export const Home = () => {
                   onClick={() => handleOptionClick("Logout")}
                 >
                   <div>Logout</div>
-                  <div>
-                    <IoLogOutOutline />
+                  <div className="ms-3 fs-5">
+                    <IoLogOutOutline style={{}} />
                   </div>
                 </div>
                 <div
@@ -139,15 +147,16 @@ export const Home = () => {
                   onClick={() => handleOptionClick("My Cart")}
                 >
                   <div>My Cart</div>
-                  <div>
-                    <AiOutlineShoppingCart />
+                  <div className="ms-3 fs-5">
+                    <AiOutlineShoppingCart style={{}} />
                   </div>
                 </div>
               </div>
             )}
-          </button>
+          </div>
         </div>
 
+        {/* FILTER */}
         <div>
           {/* filter by NAME */}
           <input
@@ -155,8 +164,9 @@ export const Home = () => {
             className="input-group "
             style={{
               width: "50%",
+              height: "3vw",
               margin: "auto",
-              padding: "5px 10px",
+              padding: "10px 15px",
               borderRadius: "20px",
               border: "1px solid black",
             }}
@@ -168,15 +178,16 @@ export const Home = () => {
             }}
           />
 
-          <div className="mt-3 d-flex flex-row ">
+          <div className="mt-3 d-flex flex-row justify-content-center align-items-center ">
             {/* filter by Price Min */}
             <input
               type="text"
               className="input-group "
               style={{
-                width: "25%",
+                width: "50%",
+                height: "3vw",
                 margin: "auto",
-                padding: "5px 10px",
+                padding: "10px 15px",
                 borderRadius: "20px",
                 border: "1px solid black",
               }}
@@ -185,7 +196,7 @@ export const Home = () => {
               placeholder="enter min price"
               onChange={(e) => {
                 setMinPrice(e.target.value);
-                console.log(minPrice);
+                // console.log(minPrice);
               }}
             />
             {/* filter by Price Max */}
@@ -194,8 +205,9 @@ export const Home = () => {
               className="input-group "
               style={{
                 width: "25%",
+                height: "3vw",
                 margin: "auto",
-                padding: "5px 10px",
+                padding: "10px 15px",
                 borderRadius: "20px",
                 border: "1px solid black",
               }}
@@ -204,7 +216,7 @@ export const Home = () => {
               placeholder="enter max price"
               onChange={(e) => {
                 setMaxPrice(e.target.value);
-                console.log(maxPrice);
+                // console.log(maxPrice);
               }}
             />
           </div>
@@ -214,9 +226,11 @@ export const Home = () => {
           {loading ? (
             <div>Loading</div>
           ) : filteredProducts.length === 0 ? (
-            <p>No matching products found.</p>
+            <div className="mt-5">
+              <strong className="fs-4">No matching products found.</strong>
+            </div>
           ) : (
-            <div className="d-flex justify-content-around flex-wrap m-5 p-5">
+            <div className="products-container d-flex justify-content-around flex-wrap  p-5">
               {filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}

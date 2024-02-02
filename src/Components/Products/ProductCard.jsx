@@ -12,9 +12,9 @@ export const ProductCard = ({ product }) => {
 
   return (
     <>
-      <div className=" card-container">
+      <div className=" card-container mt-5">
         <div className="row">
-          <div className="col-md-4 mb-4">
+          <div className="col-md-4 ">
             {/* card. */}
             <div className="card product-card ">
               <img
@@ -51,7 +51,6 @@ export const ProductCard = ({ product }) => {
                     </button>
                   </div>
 
-                  <ToastContainer position="top-center" />
                   {/* !Footer */}
                 </div>
               </div>

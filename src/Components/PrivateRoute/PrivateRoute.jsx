@@ -7,7 +7,7 @@ import { Home } from "../Home/Home";
 export const PrivateRoute = () => {
   const { token } = useAuth();
 
-  console.log("Token in Home: ", token);
+  // console.log("Token in Home: ", token);
 
   return token ? <Home /> : <Navigate to="/login" />;
 };

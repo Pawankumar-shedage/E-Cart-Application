@@ -1,8 +1,9 @@
 .login-container{
-    width: 40%;
+    width: 55%;
     height: 80vh;
-    margin: 0px auto;
+    margin:auto;
     border: 1px solid rgb(38,38,38);
+    border-radius: 10px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -12,4 +13,21 @@
 
 form{
     width: 75%;
+}
+
+/* MEDIA QUERIES */
+
+
+/* medium */
+@media screen and (max-width:768px){
+    .login-container{
+        width: 200%;
+        margin: auto;
+    }
+}
+/* large */
+@media screen and (max-width:992px){
+    .login-container{
+        width: 55%;
+    }
 }

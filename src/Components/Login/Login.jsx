@@ -34,13 +34,12 @@ export const Login = () => {
       [name]: value,
     }));
   };
-  console.log(formData);
+  // console.log(formData);
 
   //   All users
   const usersList = () => {
-    fetch("https://dummyjson.com/users")
-      .then((resp) => resp.json())
-      .then((res) => console.log(res));
+    fetch("https://dummyjson.com/users").then((resp) => resp.json());
+    // .then((res) => console.log(res));
   };
   //   usersList();
 
@@ -74,16 +73,16 @@ export const Login = () => {
           //   loggin in, setting up token
           login(token);
 
-          console.log("Local storage", localStorage.getItem("userToken"));
+          // console.log("Local storage", localStorage.getItem("userToken"));
 
           //   navigate to home.
           navigate("/home");
 
-          console.log(token);
-          console.log(data);
+          // console.log(token);
+          // console.log(data);
         });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       throw new error();
     }
   };
@@ -93,7 +92,9 @@ export const Login = () => {
     <>
       <div className="login-container mt-5">
         <div className="header mb-5">
-          <h2 className="text-center">E-Cart Applicaiton</h2>
+          <h2 className="text-center" style={{ fontSize: "3vw" }}>
+            E-Cart Applicaiton
+          </h2>
         </div>
 
         <form>
